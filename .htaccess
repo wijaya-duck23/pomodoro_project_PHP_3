@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Serve existing files and directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Serve static files from public directory
+RewriteRule ^(js|css|images|fonts)/(.*)$ public/$1/$2 [L]
+
+# Send all other requests to index.php
+RewriteRule ^(.*)$ index.php [L,QSA] 
