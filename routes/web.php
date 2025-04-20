@@ -35,6 +35,11 @@ if ($uri !== '/' && strlen($uri) > 0 && $uri[0] !== '/') {
     $uri = '/' . $uri;
 }
 
+// If uri is empty, set it to '/' for the home page
+if (empty($uri)) {
+    $uri = '/';
+}
+
 try {
     $controller = $router->route($uri, $method);
     
