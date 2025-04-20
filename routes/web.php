@@ -31,7 +31,7 @@ if ($basePath && strpos($uri, $basePath) === 0) {
 }
 
 // Ensure uri starts with /
-if ($uri !== '/' && $uri[0] !== '/') {
+if ($uri !== '/' && strlen($uri) > 0 && $uri[0] !== '/') {
     $uri = '/' . $uri;
 }
 
